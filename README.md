@@ -95,7 +95,7 @@ FastAPI provides built-in interactive docs:
 ---
 
 ## 📸 **Screenshots**
-<img width="816" height="644" alt="image" src="https://github.com/user-attachments/assets/9c760b5d-8f2a-4e24-a670-9d7dcb673d1a" />
+<img width="80" height="80" alt="image" src="https://github.com/user-attachments/assets/9c760b5d-8f2a-4e24-a670-9d7dcb673d1a" />
 
 
 
