@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/static/delete.css">
+</head>
+<body>
+    
+     <h2>Blogs</h2>
+<div class="blog-container">
+
+
+{% for i in users %}
+
+<div class="blog-card">
+
+    <h3>{{ i.title }}</h3>
+    <p>{{ i.context }}</p>
+
+    <a href="/delete/{{ i.id }}" onclick="return confirm('Are you sure?')">DELETE</a>
+    <hr>
+</div>
+{% endfor %}
+</div>
+    
+</body>
+</html>

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog Dashboard</title>
+    <link rel="stylesheet" href="/static/desk.css">
+</head>
+<body>
+   
+
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <div class="search-container">
+    <h1>Blog Dashboard</h1>
+
+    </div>
+        <h2>Menu</h2>
+        <a href="/create_blog">✏️ Create</a>
+        <a href="/update_blog">🔄 Update</a>
+        <a href="/delete_blog">🗑️ Delete</a>
+        <a href="/show_blog">👀 Show</a>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main">
+
+        <!-- Header -->
+        <header class="header">
+            <form method="post" action="/search">
+        <div class="search-box">
+            <input type="text" name="search" placeholder="Search blogs...">
+            <button type="submit">🔍</button>
+        </div>
+        </form>
+            <img src="https://img.icons8.com/ios-filled/50/000000/blog.png" class="header-img">
+            <h1>Welcome to Blog Dashboard</h1>
+            <p>Manage your blogs easily from here 🚀</p>
+        </header>
+
+        <!-- About Section -->
+        <section class="about">
+            <h2>ℹ️ About This Website</h2>
+            <p>
+                This is a simple blog management system where you can create, update,
+                delete, and view blogs.
+            </p>
+        </section>
+
+        <!-- Cards -->
+        <section class="cards">
+
+            <div class="card">
+                <img src="https://img.icons8.com/ios-filled/50/000000/edit.png">
+                <h3>Create Blog</h3>
+                <a href="/create_blog">Go</a>
+            </div>
+
+            <div class="card">
+                <img src="https://img.icons8.com/ios-filled/50/000000/available-updates.png">
+                <h3>Update Blog</h3>
+                <a href="/update_blog">Go</a>
+            </div>
+
+            <div class="card">
+                <img src="https://img.icons8.com/ios-filled/50/000000/delete.png">
+                <h3>Delete Blog</h3>
+                <a href="/delete_blog">Go</a>
+            </div>
+
+            <div class="card">
+                <img src="https://img.icons8.com/ios-filled/50/000000/visible.png">
+                <h3>Show Blogs</h3>
+                <a href="/show_blog">Go</a>
+            </div>
+
+        </section>
+
+        <!-- Extra Info Section -->
+        <section class="info">
+            <h2>⭐ Features</h2>
+            <ul>
+                <li>Create new blogs</li>
+                <li>Edit existing blogs</li>
+                <li>Delete unwanted blogs</li>
+                <li>View all blogs</li>
+            </ul>
+        </section>
+
+    </div>
+
+    <a href="/" class="back-btn">⬅ Back</a>
+
+</body>
+</html>

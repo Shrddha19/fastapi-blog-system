@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Update Blog</title>
+    <link rel="stylesheet" href="/static/update.css">
+</head>
+<body>
+    <h2>Blogs</h2>
+<div class="blog-container">
+
+
+{% for i in blog %}
+
+<div class="blog-card">
+
+    <h3>{{ i.title }}</h3>
+    <p>{{ i.context }}</p>
+
+    <a href="/update/{{ i.id }}">Edit</a>
+    <hr>
+</div>
+{% endfor %}
+</div>
+
+</body>
+</html>

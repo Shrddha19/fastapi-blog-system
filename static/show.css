@@ -1,0 +1,50 @@
+body {
+    font-family: 'Segoe UI', sans-serif;
+    background-color: #f3f5f7;
+    margin: 0;
+    padding: 0;
+}
+
+/* Full width container */
+.container {
+    width: 100%;
+    padding: 40px 0;
+}
+
+/* Center content but wide */
+.card-container {
+    width: 90%;
+    max-width: 900px;
+    margin: auto;
+}
+
+/* Blog card */
+.card {
+    background: white;
+    padding: 30px;
+    border-radius: 12px;
+    margin-bottom: 25px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+    transition: 0.3s ease;
+}
+
+/* Hover effect */
+.card:hover {
+    transform: translateY(-3px);
+}
+
+/* Title */
+.card h3 {
+    margin: 0 0 15px;
+    color: #2c3e50;
+    font-size: 22px;
+}
+
+/* Content */
+.card h4 {
+    margin: 0;
+    color: #555;
+    font-weight: normal;
+    line-height: 1.7;
+    font-size: 16px;
+}

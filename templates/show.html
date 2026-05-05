@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/show.css">
+    <title>Document</title>
+</head>
+<body>
+   <div class="container">
+    <div class="card-container">
+        {% for i in users %}
+        <div class="card">
+            <h3>Title: {{ i.title }}</h3>
+            <h4>Content: {{ i.context }}</h4>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+</body>
+</html>

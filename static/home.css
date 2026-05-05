@@ -1,0 +1,65 @@
+/* Reset default browser spacing */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body styling */
+body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(to right, #4facfe, #00f2fe);
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Main container */
+.container {
+    background: white;
+    padding: 40px;
+    border-radius: 12px;
+    text-align: center;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+}
+
+/* Heading */
+.container h1 {
+    margin-bottom: 20px;
+    color: #333;
+}
+
+/* Links as buttons */
+.container a {
+    display: inline-block;
+    text-decoration: none;
+    padding: 12px 20px;
+    margin: 10px;
+    border-radius: 8px;
+    color: white;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+/* Login button */
+.container a:first-of-type {
+    background-color: #4CAF50;
+}
+
+/* Signup button */
+.container a:last-of-type {
+    background-color: #007BFF;
+}
+
+/* Hover effect */
+.container a:hover {
+    transform: scale(1.05);
+    opacity: 0.9;
+}
+
+/* Footer text */
+.container h4 {
+    margin-top: 20px;
+    color: #555;
+}
