@@ -91,16 +91,6 @@ FastAPI provides built-in interactive docs:
 
 * **Swagger UI →** `/docs`
 * **ReDoc →** `/redoc`
-
----
-
-## 📸 **Screenshots**
-<img width="80" height="80" alt="image" src="https://github.com/user-attachments/assets/9c760b5d-8f2a-4e24-a670-9d7dcb673d1a" />
-
-
-
-
-
 ---
 
 ## 💡 **Future Improvements**
