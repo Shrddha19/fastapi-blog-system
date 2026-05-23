@@ -5,6 +5,7 @@ from models.table import hey
 from database import sessionlocal
 from fastapi.responses import HTMLResponse,RedirectResponse
 from starlette .middleware.sessions import SessionMiddleware 
+from werkzeug.security import generate_password_hash,check_password_hash
 
 
 from fastapi import Request
@@ -38,13 +39,15 @@ def sign(request:Request):
 
 @app.post("/sign", response_class=HTMLResponse)
 def signin(request:Request,email:str=Form(...),password:str=Form(...),db:Session=Depends(get_db)):
-    user=shr(email=email,password=password)
+    hash_password=generate_password_hash(password)
+    
+    print(hash_password)
     exist=db.query(shr).filter(shr.email==email).first()
     if exist:
         return templates.TemplateResponse(request,"sign.html", {
             "error": "User already exists"
         })
-    
+    user=shr(email=email,password=hash_password)
     db.add(user)
     db.commit()
     print(user)
@@ -54,14 +57,16 @@ def signin(request:Request,email:str=Form(...),password:str=Form(...),db:Session
 
   
 @app.get("/login")
-def log(request:Request,db:Session=Depends(get_db)):
+def log(request:Request):
 
     return templates.TemplateResponse(request,"login.html")
     
-@app.post("/login",response_class=HTMLResponse)
+@app.post("/login")
 def log(request:Request,email:str=Form(),password:str=Form(),db:Session=Depends(get_db)):
+    
     user=db.query(shr).filter(shr.email==email).first()
-    if user and user.password:
+    if user and check_password_hash(user.password,password):
+        print("login")
         request.session["user_id"]=user.id
         request.session["email"]=user.email
         return RedirectResponse(url="/desktop",status_code=303)
@@ -187,4 +192,7 @@ def dele(id:int,request:Request,db:Session=Depends(get_db)):
         
     return templates.TemplateResponse(request,"remove.html",{"users":demo})     
 
-   
+@app.get("/logout")
+def logout(request:Request):
+    request.session.clear()
+    return RedirectResponse("/",status_code=303)   
