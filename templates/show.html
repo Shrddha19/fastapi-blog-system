@@ -3,19 +3,103 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/static/show.css">
-    <title>Document</title>
+
+    <link rel="stylesheet" href="/static/show.css?v=3">
+
+    <title>Show Blogs</title>
 </head>
+
 <body>
-   <div class="container">
-    <div class="card-container">
-        {% for i in users %}
-        <div class="card">
-            <h3>Title: {{ i.title }}</h3>
-            <h4>Content: {{ i.context }}</h4>
+
+    <div class="container">
+
+        <div class="card-container">
+
+            {% for i in users %}
+
+            <div class="card">
+
+                <!-- Blog Title -->
+                <h2 class="title">
+                    {{ i.title }}
+                </h2>
+
+                <!-- Blog Content -->
+                <p class="content">
+                    {{ i.context }}
+                </p>
+
+                <!-- Like Section -->
+                <div class="like-section">
+
+                    <button class="likeBtn">
+                        ♡
+                    </button>
+
+                </div>
+
+                <!-- Comment Header -->
+                <div class="comment-header">
+
+                    <p class="comments-title">
+                        💬 Comments
+                    </p>
+
+                    <a href="/cmd/{{i.id}}" class="add-comment">
+                        ➕ Add Comment
+                    </a>
+
+                </div>
+
+                <!-- Show Comments -->
+                <div class="comment-box">
+
+                    {% for c in comm %}
+
+                        {% if c.ref_id == i.id %}
+
+                            <p class="comment">
+                                {{ c.cmd }}
+                            </p>
+
+                        {% endif %}
+
+                    {% endfor %}
+
+                </div>
+
+            </div>
+
+            {% endfor %}
+
         </div>
-        {% endfor %}
+
     </div>
-</div>
+
+<script>
+
+let buttons = document.querySelectorAll(".likeBtn");
+
+buttons.forEach(function(btn){
+
+    btn.onclick = function(){
+
+        if(btn.innerHTML == "♡"){
+
+            btn.innerHTML = "❤";
+            btn.style.color = "red";
+
+        }else{
+
+            btn.innerHTML = "♡";
+            btn.style.color = "#555";
+        }
+
+    }
+
+});
+
+</script>
+
 </body>
 </html>

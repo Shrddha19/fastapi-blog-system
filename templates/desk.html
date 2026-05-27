@@ -3,94 +3,198 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Blog Dashboard</title>
-    <link rel="stylesheet" href="/static/desk.css">
+    <link rel="stylesheet" href="/static/desk.css?v=2">
+    <title>Document</title>
 </head>
 <body>
-   
+    
 
-    <!-- Sidebar -->
+    <!-- SIDEBAR -->
     <div class="sidebar">
-        <div class="search-container">
-    <h1>Blog Dashboard</h1>
 
-    </div>
+        <h1>Blog Dashboard</h1>
+
         <h2>Menu</h2>
+
         <a href="/create_blog">✏️ Create</a>
         <a href="/update_blog">🔄 Update</a>
         <a href="/delete_blog">🗑️ Delete</a>
         <a href="/show_blog">👀 Show</a>
-        <a href="/logout"> 🔓 Logout</a>
+        <a href="/logout">🔓 Logout</a>
+
     </div>
 
-    <!-- Main Content -->
+
+    <!-- MAIN -->
     <div class="main">
 
-        <!-- Header -->
-        <header class="header">
+        <!-- HERO SECTION -->
+        <section class="header">
+
             <form method="post" action="/search">
-        <div class="search-box">
-            <input type="text" name="search" placeholder="Search blogs...">
-            <button type="submit">🔍</button>
-        </div>
-        </form>
-            <img src="https://img.icons8.com/ios-filled/50/000000/blog.png" class="header-img">
+
+                <div class="search-box">
+                    <input type="text" name="search" placeholder="Search blogs...">
+                    <button type="submit">🔍</button>
+                </div>
+
+            </form>
+
+            <img src="https://img.icons8.com/ios-filled/100/ffffff/blog.png" class="header-img">
+
             <h1>Welcome to Blog Dashboard</h1>
-            <p>Manage your blogs easily from here 🚀</p>
-        </header>
 
-        <!-- About Section -->
-        <section class="about">
-            <h2>ℹ️ About This Website</h2>
             <p>
-                This is a simple blog management system where you can create, update,
-                delete, and view blogs.
+                Manage your blogs easily from here 🚀
             </p>
-        </section>
-
-        <!-- Cards -->
-        <section class="cards">
-
-            <div class="card">
-                <img src="https://img.icons8.com/ios-filled/50/000000/edit.png">
-                <h3>Create Blog</h3>
-                <a href="/create_blog">Go</a>
-            </div>
-
-            <div class="card">
-                <img src="https://img.icons8.com/ios-filled/50/000000/available-updates.png">
-                <h3>Update Blog</h3>
-                <a href="/update_blog">Go</a>
-            </div>
-
-            <div class="card">
-                <img src="https://img.icons8.com/ios-filled/50/000000/delete.png">
-                <h3>Delete Blog</h3>
-                <a href="/delete_blog">Go</a>
-            </div>
-
-            <div class="card">
-                <img src="https://img.icons8.com/ios-filled/50/000000/visible.png">
-                <h3>Show Blogs</h3>
-                <a href="/show_blog">Go</a>
-            </div>
 
         </section>
 
-        <!-- Extra Info Section -->
+
+        <!-- ABOUT WEBSITE -->
+        <section class="about">
+
+            <h2>ℹ️ About This Website</h2>
+
+            <p>
+                This is a modern blog management system where users can create,
+                update, delete, and manage blogs easily with a clean and simple interface.
+            </p>
+
+        </section>
+
+
+        <!-- BLOG ACTIONS -->
+        <section class="cards-section">
+
+            <h1>Manage Blogs</h1>
+
+            <div class="cards">
+
+                <div class="card">
+                    <img src="https://img.icons8.com/ios-filled/100/000000/edit.png">
+
+                    <h3>Create Blog</h3>
+
+                    <p>Create and publish your new blog posts.</p>
+
+                    <a href="/create_blog">Go</a>
+                </div>
+
+
+                <div class="card">
+                    <img src="https://img.icons8.com/ios-filled/100/000000/available-updates.png">
+
+                    <h3>Update Blog</h3>
+
+                    <p>Edit and update your existing blog content.</p>
+
+                    <a href="/update_blog">Go</a>
+                </div>
+
+
+                <div class="card">
+                    <img src="https://img.icons8.com/ios-filled/100/000000/delete.png">
+
+                    <h3>Delete Blog</h3>
+
+                    <p>Remove unwanted blogs from your dashboard.</p>
+
+                    <a href="/delete_blog">Go</a>
+                </div>
+
+
+                <div class="card">
+                    <img src="https://img.icons8.com/ios-filled/100/000000/visible.png">
+
+                    <h3>Show Blogs</h3>
+
+                    <p>View all published blogs in one place.</p>
+
+                    <a href="/show_blog">Go</a>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- FEATURES -->
         <section class="info">
+
             <h2>⭐ Features</h2>
+
             <ul>
-                <li>Create new blogs</li>
-                <li>Edit existing blogs</li>
-                <li>Delete unwanted blogs</li>
-                <li>View all blogs</li>
+                <li>Create new blogs quickly and easily</li>
+                <li>Update and edit existing blogs</li>
+                <li>Delete unwanted blog posts</li>
+                <li>Search and manage blogs efficiently</li>
+                <li>Responsive and modern user interface</li>
             </ul>
+
+        </section>
+
+
+        <!-- MISSION -->
+        <section class="info-box mission">
+
+            <h2>🎯 Our Mission</h2>
+
+            <p>
+                Our mission is to provide a simple and user-friendly blogging platform
+                where users can create, manage, and share blogs easily.
+                This dashboard helps users organize their content efficiently
+                while improving their blogging experience.
+            </p>
+
+        </section>
+
+
+        <!-- OBJECTIVE -->
+        <section class="info-box objective">
+
+            <h2>🚀 Our Objective</h2>
+
+            <p>
+                The objective of this project is to help users perform all blogging tasks
+                in one place including creating, updating, deleting, and viewing blogs.
+                The system is designed with a clean interface and smooth navigation.
+            </p>
+
+        </section>
+
+
+        <!-- WHY CHOOSE -->
+        <section class="info-box choose">
+
+            <h2>💡 Why Choose This Website?</h2>
+
+            <p>
+                This blog dashboard is lightweight, responsive, and easy to use.
+                Users can manage blogs quickly without complicated steps.
+                The website focuses on better user experience and modern design.
+            </p>
+
+        </section>
+
+
+        <!-- FUTURE -->
+        <section class="info-box future">
+
+            <h2>🌟 Future Goals</h2>
+
+            <p>
+                Future updates will include dark mode,
+                categories, analytics, and user profiles to make the
+                platform more interactive and powerful.
+            </p>
+
         </section>
 
     </div>
 
+
+    <!-- BACK BUTTON -->
     <a href="/" class="back-btn">⬅ Back</a>
 
 </body>
-</html>

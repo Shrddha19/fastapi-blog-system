@@ -1,3 +1,5 @@
 {
-    "workbench.browser.openLocalhostLinks": false
+    "workbench.browser.openLocalhostLinks": false,
+    "simpleBrowser.focusLockIndicator.enabled": false,
+    "workbench.browser.enableChatTools": false
 }

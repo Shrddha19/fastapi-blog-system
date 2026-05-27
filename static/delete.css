@@ -1,62 +1,163 @@
-body {
-    font-family: 'Segoe UI', sans-serif;
-    background-color: #f3f5f7;
-    margin: 0;
-    padding: 20px;
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
 }
 
-/* Heading */
-h2 {
-    text-align: center;
-    color: #2c3e50;
-    margin-bottom: 30px;
+body{
+    font-family:'Poppins',sans-serif;
+    background:linear-gradient(135deg,#0f172a,#1e293b,#312e81);
+    min-height:100vh;
+    padding:40px 20px;
+    overflow-x:hidden;
 }
 
-/* Container */
-.blog-container {
-    max-width: 800px;
-    margin: auto;
+/* HEADING */
+
+h2{
+    text-align:center;
+    color:white;
+    font-size:42px;
+    margin-bottom:40px;
+    letter-spacing:1px;
+    text-shadow:0 0 15px rgba(255,255,255,0.3);
+    animation:fadeDown 1s ease;
 }
 
-/* Card style */
-.blog-card {
-    background: #e9ecef;
-    padding: 25px;
-    border-radius: 14px;
-    margin-bottom: 25px;
-    box-shadow: 0 6px 15px rgba(0,0,0,0.08);
+/* CONTAINER */
+
+.blog-container{
+    max-width:900px;
+    margin:auto;
+    display:flex;
+    flex-direction:column;
+    gap:30px;
 }
 
-/* Title */
-.blog-card h3 {
-    margin: 0 0 10px;
-    color: #2c3e50;
+/* BLOG CARD */
+
+.blog-card{
+    position:relative;
+    background:rgba(255,255,255,0.08);
+    backdrop-filter:blur(14px);
+    border:1px solid rgba(255,255,255,0.12);
+    border-radius:24px;
+    padding:28px;
+    overflow:hidden;
+    box-shadow:0 10px 30px rgba(0,0,0,0.3);
+    transition:0.4s;
+    animation:fadeUp 0.8s ease;
 }
 
-/* Content */
-.blog-card p {
-    color: #444;
-    line-height: 1.6;
+/* GLOW EFFECT */
+
+.blog-card::before{
+    content:"";
+    position:absolute;
+    width:220px;
+    height:220px;
+    background:rgba(255,255,255,0.05);
+    border-radius:50%;
+    top:-80px;
+    right:-80px;
 }
 
-/* Delete button */
-.blog-card a {
-    display: inline-block;
-    margin-top: 15px;
-    padding: 8px 16px;
-    background-color: #e74c3c;
-    color: white;
-    text-decoration: none;
-    border-radius: 6px;
-    font-size: 14px;
+.blog-card::after{
+    content:"";
+    position:absolute;
+    width:140px;
+    height:140px;
+    background:rgba(255,255,255,0.04);
+    border-radius:50%;
+    bottom:-50px;
+    left:-50px;
 }
 
-.blog-card a:hover {
-    background-color: #c0392b;
+/* HOVER */
+
+.blog-card:hover{
+    transform:translateY(-8px) scale(1.01);
+    box-shadow:0 18px 40px rgba(0,0,0,0.45);
 }
 
-/* Remove ugly hr line look */
-.blog-card hr {
-    border: none;
-    margin-top: 15px;
+/* TITLE */
+
+.blog-card h3{
+    position:relative;
+    color:#ffffff;
+    font-size:30px;
+    margin-bottom:18px;
+    z-index:2;
+    text-shadow:0 0 10px rgba(255,255,255,0.25);
+}
+
+/* CONTENT */
+
+.blog-card p{
+    position:relative;
+    color:#dbeafe;
+    line-height:1.9;
+    font-size:16px;
+    z-index:2;
+}
+
+/* DELETE BUTTON */
+
+.blog-card a{
+    position:relative;
+    display:inline-block;
+    margin-top:22px;
+    padding:12px 24px;
+    background:linear-gradient(135deg,#ff416c,#ff4b2b);
+    color:white;
+    text-decoration:none;
+    border-radius:14px;
+    font-size:15px;
+    font-weight:600;
+    letter-spacing:0.5px;
+    transition:0.4s;
+    z-index:2;
+    box-shadow:0 5px 20px rgba(255,75,43,0.4);
+}
+
+/* BUTTON HOVER */
+
+.blog-card a:hover{
+    transform:translateY(-3px) scale(1.05);
+    box-shadow:
+        0 0 15px #ff416c,
+        0 0 35px #ff4b2b;
+}
+
+/* HR */
+
+.blog-card hr{
+    border:none;
+    margin-top:18px;
+}
+
+/* ANIMATIONS */
+
+@keyframes fadeUp{
+    from{
+        opacity:0;
+        transform:translateY(40px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+@keyframes fadeDown{
+    from{
+        opacity:0;
+        transform:translateY(-40px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
 }

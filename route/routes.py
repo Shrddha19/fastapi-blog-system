@@ -2,6 +2,7 @@ from fastapi import APIRouter,Depends,Request,Form,Response
 from sqlalchemy.orm import Session
 from models.table import shr
 from models.table import hey
+from models.table import comment
 from database import sessionlocal
 from fastapi.responses import HTMLResponse,RedirectResponse
 from starlette .middleware.sessions import SessionMiddleware 
@@ -148,13 +149,18 @@ def chnag(id:int,request:Request,title:str=Form(...),context:str=Form(...),bd:Se
 
 @app.get("/show_blog",response_class=HTMLResponse)
 def show(request:Request,db:Session=Depends(get_db)):
+    
     user=db.query(hey).all()
-    return templates.TemplateResponse(request,"show.html",{"users":user})
+    add=db.query(comment).all()
+    
+    
+    return templates.TemplateResponse(request,"show.html",{"users":user,"comm":add})
     
 
     
 @app.get("/delete_blog", response_class=HTMLResponse)
 def rem(request: Request, db: Session = Depends(get_db)):
+    
     user_id = request.session.get("user_id")
 
     demo = db.query(hey).filter(hey.user_id == user_id).all()
@@ -190,7 +196,22 @@ def dele(id:int,request:Request,db:Session=Depends(get_db)):
     demo=db.query(hey).filter(hey.id==id).first()
    
         
-    return templates.TemplateResponse(request,"remove.html",{"users":demo})     
+    return templates.TemplateResponse(request,"remove.html",{"users":demo})   
+
+@app.get("/cmd/{id}" , response_class=HTMLResponse)
+def comm(id:int,request:Request,db:Session=Depends(get_db)):
+    
+    views=db.query(comment).filter(comment.ref_id==id).all()
+    return templates.TemplateResponse(request,"comment.html",{"view":views,"blog_id":id})
+    
+@app.post("/cmd/{id}",response_class=HTMLResponse)
+def comments(id:int,request:Request,cmd:str=Form(...),db:Session=Depends(get_db)):
+   added=comment(cmd=cmd ,ref_id=id)
+   
+   db.add(added)
+   db.commit()
+   db.refresh(added)
+   return RedirectResponse("/show_blog", status_code=303)
 
 @app.get("/logout")
 def logout(request:Request):

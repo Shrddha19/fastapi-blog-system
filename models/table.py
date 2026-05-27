@@ -14,6 +14,12 @@ class hey(base):
     context=Column(String(78))
     user_id=Column(Integer,ForeignKey("demo.id"))
     
+class comment(base):
+    __tablename__="commits"   
+    r_no=Column(Integer,primary_key=True, autoincrement=True) 
+    cmd=Column(String(78))
+    ref_id=Column(Integer,ForeignKey("posted.id"))
+    
     
     
     
