@@ -12,6 +12,22 @@ body{
     padding:40px;
     overflow-x:hidden;
 }
+.back-btn{
+    position:fixed;
+    right:25px;
+    bottom:25px;
+    text-decoration:none;
+    background:linear-gradient(135deg,#2563eb,#7c3aed);
+    color:white;
+    padding:16px 30px;
+    border-radius:18px;
+    transition:0.4s;
+    box-shadow:0 10px 30px rgba(0,0,0,0.3);
+}
+
+.back-btn:hover{
+    transform:translateY(-6px) scale(1.05);
+}
 
 /* CONTAINER */
 
@@ -20,7 +36,7 @@ body{
     display:flex;
     justify-content:center;
     border: #f8fafc;
-    border-width: 25px;
+    border-width: 5px;
 }
 
 .card-container{

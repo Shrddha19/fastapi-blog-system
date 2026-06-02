@@ -8,6 +8,9 @@
 </head>
 <body>
     <form action="/sign" method="post">
+        {%if error%}
+        <p>{{error}}</p>
+        {%endif%}
         <label>email</label>
         <input type="email" name="email">
         <label>Password</label>

@@ -3,13 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <title>Update Blog</title>
-    <link rel="stylesheet" href="/static/update.css?v=2">
+    <link rel="stylesheet" href="/static/update.css?v=3">
 </head>
 <body>
     <h2>Blogs</h2>
 <div class="blog-container">
 
-
+{%if msg%}
+<p>{{msg}}</p>
+{%endif%}
 {% for i in blog %}
 
 <div class="blog-card">
@@ -22,6 +24,7 @@
 </div>
 {% endfor %}
 </div>
+ <a href="/desktop" class="back-btn">Back</a>
 
 </body>
 </html>

@@ -42,7 +42,7 @@ def sign(request:Request):
 def signin(request:Request,email:str=Form(...),password:str=Form(...),db:Session=Depends(get_db)):
     hash_password=generate_password_hash(password)
     
-    print(hash_password)
+    
     exist=db.query(shr).filter(shr.email==email).first()
     if exist:
         return templates.TemplateResponse(request,"sign.html", {
@@ -66,13 +66,16 @@ def log(request:Request):
 def log(request:Request,email:str=Form(),password:str=Form(),db:Session=Depends(get_db)):
     
     user=db.query(shr).filter(shr.email==email).first()
-    if user and check_password_hash(user.password,password):
-        print("login")
-        request.session["user_id"]=user.id
-        request.session["email"]=user.email
-        return RedirectResponse(url="/desktop",status_code=303)
+    if  not user  :
+        return templates.TemplateResponse(request,"login.html",{"msg":"User Not Found"})
+    
+    if  not check_password_hash(user.password,password):
+        return templates.TemplateResponse(request,"login.html",{"msg":"Password Is Wrong"})
+    request.session["user_id"]=user.id
+    request.session["email"]=user.email
+    return RedirectResponse(url="/desktop",status_code=303)
         
-    return templates.TemplateResponse(request,"login.html",{"user":user})
+    
 
 @app.get("/desktop",response_class=HTMLResponse)
 def desk(request:Request):
@@ -85,7 +88,11 @@ def desk(request:Request):
 @app.post("/search",response_class=HTMLResponse)
 def sea(request:Request,search:str=Form(...),db:Session=Depends(get_db)):
     search=db.query(hey).filter(hey.title==search).all()
-    return templates.TemplateResponse(request,"searchitem.html",{"users":search})
+    if search:
+      return templates.TemplateResponse(request,"searchitem.html",{"users":search})
+    if not search:
+        return templates.TemplateResponse(request,"searchitem.html",{"msg":"Not Found"})
+    
     
     
     
@@ -103,9 +110,9 @@ def creates(request:Request,title:str=Form(...),context:str=Form(...),db:Session
     user=hey(title=title,context=context,user_id=user_id)
     db.add(user)
     db.commit()
-    
-    request.session["msg"]="Blog Created Succesfully"
-    return templates.TemplateResponse(request,"create.html",{"user":user})
+    if user:
+       return templates.TemplateResponse(request,"create.html",{"user":"Blog created Succesfully"})
+    return templates.TemplateResponse(request,"create.html")
 
 
 
@@ -116,10 +123,9 @@ def update(request:Request,db:Session=Depends(get_db)):
     if not user_id:
         return RedirectResponse(url="/home",status_code=303)
     blogs=db.query(hey).filter(hey.user_id==user_id).all()
-    print(blogs)
-    for i in blogs:
-        print(i.title)
-        print(i.context)
+    if  not blogs:
+        return templates.TemplateResponse(request,"update.html",{"msg":"No Blog Yet...!"})
+   
     
     return templates.TemplateResponse(request,"update.html",{"blog":blogs})
 
@@ -167,9 +173,6 @@ def rem(request: Request, db: Session = Depends(get_db)):
 
       # DEBUG LINE
 
-    for i in demo:
-        print(i.title)
-        print(i.context)
 
     return templates.TemplateResponse(request,
         "delete.html",
@@ -189,14 +192,9 @@ def rem(id:int,request:Request,db:Session=Depends(get_db)):
         db.commit()
         print("deleted")
         db.close()  
-    return templates.TemplateResponse(request,"remove.html",{"users":demo})
+    return RedirectResponse("/delete_blog",status_code=303)
 
-@app.get("/delete_blog",response_class=HTMLResponse)
-def dele(id:int,request:Request,db:Session=Depends(get_db)):
-    demo=db.query(hey).filter(hey.id==id).first()
-   
-        
-    return templates.TemplateResponse(request,"remove.html",{"users":demo})   
+
 
 @app.get("/cmd/{id}" , response_class=HTMLResponse)
 def comm(id:int,request:Request,db:Session=Depends(get_db)):

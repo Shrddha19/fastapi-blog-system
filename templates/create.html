@@ -8,12 +8,15 @@
 </head>
 <body>
     <form action="/create_blog" method="post">
+        {%if user%}
+        <p>{{user}}</p>
+        {%endif%}
     <label>Title</label>
     <input type="text" name="title">
     <label>Context</label>
     <textarea name="context" rows="5" placeholder="Write your blog content..."></textarea>
     <button type="submit" >Submit</button>
-    <a href="/desktop">Back</a>
+      <a href="/desktop" class="back-btn">⬅ Back</a>
     </form>
 </body>
 </html>

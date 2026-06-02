@@ -4,12 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Search Results</title>
-    <link rel="stylesheet" href="/static/search.css">
+    <link rel="stylesheet" href="/static/search.css?v=2">
 </head>
 <body>
 
 <form action="/search" method="get">
-    <h2 class="heading">Found some queries</h2>
+    {%if msg%}
+    <h2 class="heading">{{msg}}</h2>
+    {%endif%}
 
     <div class="container">
         {% for i in users %}
@@ -19,6 +21,7 @@
         </div>
         {% endfor %}
     </div>
+    <a href="/desktop" class="back-btn">Back</a>
 </form>
 
 </body>
